@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:   
-  annotations:  
+metadata:
+  annotations:
     tad.gitops.set/image: ".spec.template.spec.containers[0].image"
     tad.gitops.get/image: ".spec.template.spec.containers[0].image"
     tad.gitops.set/replicas: ".spec.replicas"
-    tad.gitops.get/replicas: ".spec.replicas" 
+    tad.gitops.get/replicas: ".spec.replicas"
   name: test-alltogether-oct4
 spec:
-  replicas: 1 
-  template: 
+  replicas: 1
+  template:
     spec:
       containers:
-      - image: quay.io/redhat-ai-dev/ai-template-bootstrap-app:latest # use pre-built to bootstrap 
-        name: app-inference 
+        - image: quay.io/jdubrick-ai/test-alltogether-oct4:aadb5f9dc4b1e6a16029a293f12efebfee54dbd8@sha256:e9a848393f33d96b37b7f10a8d16ed8d7cede658eae60efc6c9b28d4bd257176 # use pre-built to bootstrap 
+          name: app-inference
